@@ -1,0 +1,1607 @@
+@charset "UTF-8";
+@import url("reset_style.css");
+/* -------------Общие стили------------- */
+div, header, footer, aside, section, main {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  height: 100vh;
+}
+
+/* -------------Задний фон header------------- */
+.bg-header-container {
+  position: absolute;
+}
+
+.bg-header-brevno {
+  position: relative;
+  width: 55%;
+  height: 100vh;
+}
+.bg-header-brevno img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.1);
+}
+.bg-header-brevno::before {
+  position: absolute;
+  content: "F";
+  top: 86%;
+  left: 38%;
+  z-index: 1;
+  font-size: 200px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(182, 164, 125, 0.1);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.bg-header-drova {
+  width: 45%;
+  height: calc(100vh + 60px);
+  overflow: hidden;
+}
+.bg-header-drova img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0.1);
+}
+
+/* -------------Контейнер элементов header------------- */
+.over-header {
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+}
+
+.navigation {
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Меню */
+.position-button-menu {
+  z-index: 3;
+  align-items: center;
+}
+
+.menu {
+  margin-left: 27px;
+  margin-top: 34px;
+}
+
+.menu-text {
+  margin-left: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.8;
+  transition: all 0.3s ease 0s;
+}
+
+.menu-icon {
+  position: relative;
+  display: block;
+  width: 33px;
+  height: 22px;
+  cursor: pointer;
+}
+.menu-icon::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(182, 164, 125);
+  transition: all 0.5s ease 0s;
+}
+.menu-icon span {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(182, 164, 125);
+  transition: transform 0.3s ease 0s;
+}
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 0px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(182, 164, 125);
+  transition: all 0.5s ease 0s;
+}
+
+/* События меню */
+.menu-icon.active::before {
+  transform: rotate(45deg) translate(6px, 6px);
+  transition: all 0.5s ease 0s;
+  background-color: black;
+}
+.menu-icon.active span {
+  transform: scale(0);
+  transition: transform 0.3s ease 0s;
+}
+.menu-icon.active::after {
+  transform: rotate(-45deg) translate(7px, -7px);
+  transition: all 0.5s ease 0s;
+  background-color: black;
+}
+
+.menu-text.active {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+  z-index: 2;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translateX(-100%);
+  transition: all 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  width: 20vw;
+  min-width: 200px;
+  height: 100vh;
+  background-color: rgba(182, 164, 125, 0.7);
+}
+.dropdown-menu ul {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.dropdown-menu ul li {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.502);
+  text-transform: uppercase;
+  line-height: 1.8;
+  padding: 15px 0px;
+  align-self: stretch;
+  text-align: center;
+}
+.dropdown-menu ul li:hover {
+  background-color: rgb(182, 164, 125);
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+}
+
+.dropdown-menu.active {
+  transform: translateX(0);
+  transition: all 0.5s ease 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Центральная часть строики с навигацией */
+.center-header-nav {
+  margin-top: 30px;
+  align-items: center;
+}
+
+.center-nav-logo {
+  position: relative;
+  margin-right: 100px;
+  font-size: 36px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+.center-nav-logo::before {
+  content: "";
+  position: absolute;
+  width: 58px;
+  height: 4px;
+  top: 20px;
+  left: 42px;
+  background-color: rgb(182, 164, 125);
+}
+
+.center-nav .center-nav-li-1,
+.center-nav .center-nav-li-2,
+.center-nav .center-nav-li-3 {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.8;
+  cursor: pointer;
+}
+.center-nav .center-nav-li-1,
+.center-nav .center-nav-li-2 {
+  margin-right: 100px;
+}
+
+/* Правая часть строики с навигацией */
+.header-info-lang {
+  margin-right: 10px;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.header-info {
+  position: relative;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  line-height: 1.5;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  text-align: center;
+  cursor: help;
+  margin-right: 50px;
+}
+.header-info:hover::after {
+  content: "Это может быть как ссылкой, так и такой всплывающей подсказкой!";
+  position: absolute;
+  color: rgba(0, 0, 0, 0.8);
+  width: 200px;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  top: 30px;
+  left: -150px;
+  text-align: left;
+}
+
+.lang-container {
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+}
+
+.header-lang {
+  position: relative;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding: 9px 20px 9px 9px;
+  transition: all 0.3s ease 0s;
+}
+.header-lang::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 36px;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: rgb(182, 164, 125);
+  transition: all 0.2s ease 0s;
+}
+
+.header-lang.active-lang {
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease 0s;
+}
+.header-lang.active-lang::before {
+  transform: rotate(180deg) translateY(6px);
+  transition: all 0.2s ease 0s;
+}
+
+.header-lang-ru {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  top: 36px;
+  left: 0px;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.2;
+  padding: 9px 20px 9px 9px;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease 0s;
+}
+
+.header-lang-ru.active-lang {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease 0s;
+}
+.header-lang-ru.active-lang:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* -------------Основная часть header------------- */
+.central-header-content {
+  width: 100%;
+  height: 100%;
+}
+
+/* Левая часть основного header */
+.decor-header-numb {
+  margin: 0px 0px 0px 19vw;
+}
+
+.decor-header-numb {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-numb {
+  position: relative;
+  font-size: 42px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(182, 164, 125);
+  text-transform: uppercase;
+  line-height: 1.1;
+  writing-mode: vertical-lr;
+  margin-bottom: 25px;
+}
+.header-numb::before {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 43px;
+  background-color: rgb(182, 164, 125);
+  top: -61px;
+  left: 22px;
+}
+
+.circle-1,
+.circle-2,
+.circle-3,
+.circle-4 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 15px 0px;
+}
+
+.circle-1 {
+  background-color: rgb(182, 164, 125);
+}
+
+.circle-2 {
+  background-color: rgb(51, 51, 51);
+}
+
+.circle-3 {
+  background-color: rgb(51, 51, 51);
+}
+
+.circle-4 {
+  background-color: rgb(51, 51, 51);
+}
+
+/* Центральная часть основного header */
+.center-header-container {
+  flex-direction: column;
+  margin: 13% 0px 0px 15%;
+}
+
+.center-header-logo {
+  font-size: 75px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(182, 165, 125);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: left;
+}
+
+.center-header-btn {
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  border: solid 2px rgb(255, 255, 255);
+  align-items: center;
+  margin: 25px 0px 0px 10px;
+}
+.center-header-btn p {
+  font-size: 10px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-left: 25%;
+}
+.center-header-btn span {
+  position: relative;
+  margin-left: 10px;
+  width: 25px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+}
+.center-header-btn span::before {
+  position: absolute;
+  content: "";
+  top: -3px;
+  left: 18px;
+  width: 7px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  transform: rotate(45deg);
+}
+.center-header-btn span::after {
+  position: absolute;
+  content: "";
+  top: 3px;
+  left: 18px;
+  width: 7px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  transform: rotate(-45deg);
+}
+
+.center-header-mouse {
+  flex-direction: column;
+  margin-top: 50px;
+  width: 20px;
+}
+
+.img-mouse {
+  width: 20px;
+  height: 30px;
+  transform: scale(0.8);
+}
+
+.arrow {
+  position: relative;
+  width: 1px;
+  height: 60px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px 10px;
+}
+.arrow::before {
+  position: absolute;
+  content: "";
+  top: 56px;
+  left: 0px;
+  width: 7px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  transform: rotate(135deg);
+}
+.arrow::after {
+  position: absolute;
+  content: "";
+  top: 56px;
+  left: -6px;
+  width: 7px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+  transform: rotate(-135deg);
+}
+
+.txt-scroll {
+  font-size: 11px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
+  margin: 0 auto;
+}
+
+/* Правая часть основного header */
+.right-header-container {
+  flex-direction: column;
+  margin: 15% 0 0 15%;
+}
+
+.right-header-text {
+  flex-direction: column;
+}
+.right-header-text span {
+  font-size: 12px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(182, 164, 125, 0.25);
+  text-transform: uppercase;
+  writing-mode: vertical-lr;
+  margin: 10px 0;
+}
+
+.right-header-decor {
+  width: 2px;
+  height: 45px;
+  background-color: rgb(182, 165, 125);
+  margin-top: 35vh;
+}
+
+/* Соцсети */
+.social-container {
+  position: absolute;
+  bottom: -50px;
+  right: 25px;
+  width: 230px;
+  border-radius: 125px;
+  overflow: hidden;
+}
+
+.social-bg {
+  padding: 6px 4px;
+  background-color: rgba(41, 39, 35, 0.4);
+  border-radius: 125px;
+  width: 230px;
+  position: relative;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease 0s;
+}
+
+.wha-img-container,
+.yot-img-container,
+.int-img-container {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  padding: 7px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+.wha-img-container img,
+.yot-img-container img,
+.int-img-container img {
+  width: 21px;
+  height: 23px;
+}
+.wha-img-container:active,
+.yot-img-container:active,
+.int-img-container:active {
+  background-color: rgb(218, 202, 169);
+}
+
+.soc-img-container {
+  z-index: 1;
+  position: absolute;
+  right: 0px;
+  bottom: 6px;
+  padding: 7px;
+  margin: 0px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease 0s;
+}
+.soc-img-container img {
+  width: 21px;
+  height: 23px;
+}
+.soc-img-container:active {
+  background-color: rgb(218, 202, 169);
+}
+
+/* Анимация social */
+.social-bg.active-soc {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease 0s;
+}
+
+.soc-img-container.active-soc {
+  transition: all 0.3s ease 0s;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.soc-img-container.active-soc:active {
+  background-color: rgb(218, 202, 169);
+}
+
+/* Header окончен */
+/* --------------------------Main-------------------------- */
+main {
+  width: 100%;
+  overflow: hidden;
+  height: 1100px;
+  align-content: flex-start;
+}
+
+/* -------------01 секция "Furniture"------------- */
+.furniture {
+  flex-wrap: nowrap;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 1000px;
+  height: 300px;
+  margin: 0px auto;
+  margin-top: 135px;
+  align-items: flex-start;
+}
+.furniture::before {
+  z-index: 1;
+  position: absolute;
+  content: "Furniture";
+  top: 75px;
+  left: 680px;
+  font-size: 135px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(207, 207, 207, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Левывая часть */
+.main-left-decor-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 150px;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.main-deocr-line-1 {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 125px;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+}
+
+.main-deocr-line-2 {
+  position: absolute;
+  top: 145px;
+  left: 90px;
+  width: 35px;
+  height: 3px;
+  background-color: rgb(182, 165, 125);
+}
+
+.main-deocr-num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin-left: 10px;
+}
+.main-deocr-num span {
+  color: rgb(182, 165, 125);
+}
+.main-deocr-num::before {
+  position: absolute;
+  content: "";
+  top: 375px;
+  left: 25px;
+  width: 3px;
+  height: 50px;
+  background-color: rgb(182, 165, 125);
+}
+
+/* Центральная часть  */
+.main-center-txt-container {
+  width: 350px;
+  margin-top: 80px;
+}
+
+.main-center-txt {
+  font-family: "Montserrat", sans-serif;
+}
+.main-center-txt h1 {
+  font-size: 41px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+}
+.main-center-txt p {
+  font-size: 14px;
+  color: rgb(72, 72, 72);
+  line-height: 1.5;
+}
+
+.main-center-btn {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  margin-top: 25px;
+  width: 170px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.main-center-btn:hover div {
+  transition: all 0.3s linear 0s;
+  transform: scaleX(5);
+}
+.main-center-btn div {
+  margin-top: 10px;
+  width: 40px;
+  height: 2px;
+  background-color: rgb(182, 165, 125);
+  transition: all 0.3s linear 0s;
+}
+.main-center-btn span {
+  position: absolute;
+  top: 232px;
+  left: 276px;
+  width: 39px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+.main-center-btn span::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: 33px;
+  transform: rotate(45deg);
+  width: 7px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+.main-center-btn span::after {
+  position: absolute;
+  content: "";
+  top: 2px;
+  left: 33px;
+  transform: rotate(-45deg);
+  width: 7px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+
+/* Правая часть */
+.main-right-img-container {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 450px;
+  height: 300px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.main-img-1 {
+  position: absolute;
+  transform: scale(0.8);
+  top: -50px;
+  right: -110px;
+  width: 936px;
+  height: 445px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.4s ease 0s;
+  filter: grayscale(0.3);
+}
+.main-img-1:hover {
+  transition: all 0.8s ease 0.2s;
+  filter: grayscale(0) saturate(1.2);
+}
+
+/* -------------02 секция "Decor"------------- */
+.decor {
+  flex-wrap: nowrap;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 1000px;
+  height: 300px;
+  margin: 0px auto;
+  margin-top: 200px;
+  align-items: flex-start;
+}
+.decor::before {
+  position: absolute;
+  content: "D";
+  z-index: 1;
+  top: -160px;
+  left: 800px;
+  font-size: 200px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(207, 207, 207, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.decor::after {
+  position: absolute;
+  content: "Decor";
+  top: 90px;
+  left: -130px;
+  font-size: 125px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(207, 207, 207, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* Левывая часть */
+.main-left-img-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 450px;
+  height: 300px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.main-img-2 {
+  position: absolute;
+  transform: scale(0.8);
+  top: -50px;
+  right: -110px;
+  width: 639px;
+  height: 426px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.4s ease 0s;
+  filter: grayscale(0.3);
+}
+.main-img-2:hover {
+  transition: all 0.8s ease 0.2s;
+  filter: grayscale(0) saturate(1.2);
+}
+
+/* Центральная часть  */
+.main-center-2-txt-container {
+  width: 300px;
+  margin-top: 50px;
+  margin-left: 50px;
+  flex-direction: column;
+  align-content: center;
+}
+
+.main-center-2-txt {
+  font-family: "Montserrat", sans-serif;
+  text-align: right;
+}
+.main-center-2-txt h1 {
+  font-size: 41px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000000;
+}
+.main-center-2-txt p {
+  font-size: 14px;
+  color: rgb(72, 72, 72);
+  line-height: 1.5;
+}
+
+.main-center-2-btn {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  margin-top: 25px;
+  margin-left: 100px;
+  cursor: pointer;
+  overflow: hidden;
+}
+.main-center-2-btn:hover div {
+  transition: all 0.3s linear 0s;
+  transform: scaleX(5);
+}
+.main-center-2-btn div {
+  margin-top: 10px;
+  width: 40px;
+  height: 2px;
+  background-color: rgb(182, 165, 125);
+  transition: all 0.3s linear 0s;
+}
+.main-center-2-btn span {
+  position: absolute;
+  top: 7px;
+  left: 125px;
+  width: 39px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+.main-center-2-btn span::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: 33px;
+  transform: rotate(45deg);
+  width: 7px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+.main-center-2-btn span::after {
+  position: absolute;
+  content: "";
+  top: 2px;
+  left: 33px;
+  transform: rotate(-45deg);
+  width: 7px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+
+/* Правая часть */
+.main-right-decor-2-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 150px;
+  height: 100%;
+  align-items: flex-end;
+}
+
+.main-deocr-2-line-1 {
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  width: 125px;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+}
+
+.main-deocr-2-line-2 {
+  position: absolute;
+  top: 116px;
+  left: 0px;
+  width: 35px;
+  height: 3px;
+  background-color: rgb(182, 165, 125);
+}
+
+.main-deocr-2-num {
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  margin-left: 10px;
+}
+.main-deocr-2-num span {
+  color: rgb(182, 165, 125);
+}
+.main-deocr-2-num::before {
+  position: absolute;
+  content: "";
+  top: 375px;
+  left: 25px;
+  width: 3px;
+  height: 50px;
+  background-color: rgb(182, 165, 125);
+}
+
+/* -------------"quality"------------- */
+.quality {
+  width: 1000px;
+  height: 150px;
+  margin: 0px auto;
+  margin-top: 50px;
+}
+
+.pos-quality {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+.pos-quality h1 {
+  font-size: 48px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 2;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.pos-quality span {
+  position: absolute;
+  top: 90px;
+  left: 480px;
+  width: 40px;
+  height: 3px;
+  background-color: rgb(182, 165, 125);
+}
+.pos-quality p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(99, 98, 98);
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* -------------"stories"------------- */
+.container-three-stories {
+  display: flex;
+  width: 1000px;
+  margin: 0px auto;
+  margin-top: 100px;
+}
+
+.first-story-container,
+.second-story-container,
+.third-story-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  flex-grow: 1;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-video-story::before {
+  position: absolute;
+  content: "";
+  top: -13px;
+  left: 28px;
+  width: 275px;
+  height: 275px;
+  border-radius: 50%;
+  border: solid rgba(0, 0, 0, 0.2) 1px;
+}
+
+.frame-padding-story-1,
+.frame-padding-story-2,
+.frame-padding-story-3 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.frame-padding-story-1 img,
+.frame-padding-story-2 img,
+.frame-padding-story-3 img {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.frame-padding-story-1 video,
+.frame-padding-story-2 video,
+.frame-padding-story-3 video {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
+  width: 250px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.btn-story-1,
+.btn-story-2,
+.btn-story-3 {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: rgba(182, 164, 125, 0.7);
+}
+.btn-story-1 svg,
+.btn-story-2 svg,
+.btn-story-3 svg {
+  position: relative;
+  top: 23px;
+  left: 27px;
+}
+
+.poster-1,
+.poster-2,
+.poster-3 {
+  cursor: pointer;
+}
+
+/* Анимация stories */
+.img-stories-1,
+.img-stories-2,
+.img-stories-3,
+.btn-story-1,
+.btn-story-2,
+.btn-story-3 {
+  opacity: 1;
+  transition: all 0.5s ease 0s;
+}
+
+.img-stories-1.active-stories,
+.img-stories-2.active-stories,
+.img-stories-3.active-stories,
+.btn-story-1.active-stories,
+.btn-story-2.active-stories,
+.btn-story-3.active-stories {
+  opacity: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.frame-padding-story-1 img {
+  -o-object-position: -40px top;
+     object-position: -40px top;
+}
+
+/* Текст stories */
+.text-story-1,
+.text-story-2,
+.text-story-3 {
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(0, 0, 0);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 50px;
+}
+.text-story-1::before,
+.text-story-2::before,
+.text-story-3::before {
+  position: absolute;
+  content: "";
+  top: 285px;
+  left: 150px;
+  width: 25px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+
+.text-story-3::before {
+  position: absolute;
+  content: "V";
+  top: 350px;
+  left: 150px;
+  z-index: -1;
+  font-size: 190px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(182, 164, 125, 0.08);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-align: left;
+}
+
+/* -------------"watch video"------------- */
+.watch-video-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 900px;
+  overflow: hidden;
+}
+
+/* Задний фон watch video */
+.bg-watch-video {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+}
+.bg-watch-video::before {
+  position: absolute;
+  content: "";
+  top: 370px;
+  right: 390px;
+  z-index: 1;
+  width: 1px;
+  height: 150px;
+  background-color: rgb(255, 255, 255);
+}
+
+.player-bg-watch-video {
+  position: absolute;
+  top: 30px;
+  right: 200px;
+  width: 865px;
+  height: 832px;
+}
+
+.img-bg-watch-video {
+  width: 1920px;
+  height: 916px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: filter 0.3s ease 0.1s;
+  filter: blur(0px);
+  transform: scale(1.1);
+}
+
+/* Анимация наведения на кнопку*/
+.img-bg-watch-video.active-img-bg-w-v {
+  transition: filter 0.3s ease 0.2s;
+  filter: blur(5px);
+}
+
+.pos-watch-video {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  border: solid 3px rgb(182, 164, 125);
+  width: 85vw;
+  height: 75vh;
+}
+
+.pos-text-btn {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 600px;
+  height: 400px;
+  margin: auto 0px auto 350px;
+}
+
+.pos-first-text-w-v {
+  margin-bottom: 50px;
+}
+.pos-first-text-w-v p {
+  font-size: 48px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(182, 164, 125);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+.pos-first-text-w-v::before {
+  position: absolute;
+  content: "";
+  top: 30px;
+  left: -175px;
+  width: 150px;
+  height: 1px;
+  background-color: rgb(255, 255, 255);
+}
+
+.pos-second-text-w-v p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(255, 255, 255);
+  line-height: 1.6;
+  text-align: left;
+}
+.pos-second-text-w-v::before {
+  position: absolute;
+  content: "";
+  top: 182px;
+  left: -75px;
+  width: 50px;
+  height: 4px;
+  background-color: rgb(182, 164, 125);
+}
+
+.pos-btn-w-v {
+  cursor: pointer;
+  align-self: flex-start;
+  margin-top: 40px;
+  border: solid rgb(255, 255, 255) 1px;
+  padding: 13px 90px 13px 110px;
+}
+.pos-btn-w-v p {
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 2;
+}
+.pos-btn-w-v img {
+  position: absolute;
+  top: 320px;
+  left: 75px;
+}
+
+/* Видео */
+.video-watch-video {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgb(0, 0, 0);
+  transition: all 0.3s linear 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.video-watch-video.active-watch-video {
+  transition: all 0.3s linear 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-close-video {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  z-index: 2;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: rgb(182, 165, 125);
+  border-radius: 50%;
+  transition: all 0.2s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+.btn-close-video::before {
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 25px;
+  transform: rotate(45deg);
+  width: 1px;
+  height: 35px;
+  background-color: rgb(0, 0, 0);
+}
+.btn-close-video::after {
+  position: absolute;
+  content: "";
+  top: 9px;
+  left: 25px;
+  transform: rotate(-45deg);
+  width: 1px;
+  height: 35px;
+  background-color: rgb(0, 0, 0);
+}
+.btn-close-video:hover {
+  transition: all 0.2s ease 0s;
+  box-shadow: 0px 0px 25px 5px rgb(182, 165, 125);
+}
+
+.btn-close-video.active-btn-close-video {
+  transition: all 0.2s ease 0s;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* -------------"about us"------------- */
+.about-us-container {
+  display: flex;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin: 135px auto;
+  width: 1100px;
+  height: 400px;
+}
+
+.img-about-us {
+  width: 600px;
+  height: 400px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
+}
+
+.card-about-us-container {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin: auto 0px auto 100px;
+}
+.card-about-us-container h1 {
+  font-size: 48px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(6, 6, 6);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+}
+.card-about-us-container h1::before {
+  position: absolute;
+  content: "";
+  top: 24px;
+  left: -175px;
+  width: 150px;
+  height: 1px;
+  background-color: rgb(0, 0, 0);
+}
+.card-about-us-container p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(72, 72, 72);
+  line-height: 1.6;
+  text-align: left;
+  margin: 30px 0px;
+}
+.card-about-us-container p::before {
+  position: absolute;
+  content: "";
+  top: 90px;
+  left: -70px;
+  width: 45px;
+  height: 4px;
+  background-color: rgb(182, 165, 125);
+}
+
+.btn-adout-us {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  overflow: hidden;
+}
+.btn-adout-us:hover div {
+  transition: all 0.3s linear 0s;
+  transform: scaleX(5);
+}
+.btn-adout-us div {
+  margin-top: 10px;
+  width: 40px;
+  height: 2px;
+  background-color: rgb(182, 165, 125);
+  transition: all 0.3s linear 0s;
+}
+.btn-adout-us span {
+  position: absolute;
+  top: 7px;
+  left: 125px;
+  width: 39px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+.btn-adout-us span::before {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: 33px;
+  transform: rotate(45deg);
+  width: 7px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+.btn-adout-us span::after {
+  position: absolute;
+  content: "";
+  top: 2px;
+  left: 33px;
+  transform: rotate(-45deg);
+  width: 7px;
+  height: 1px;
+  background-color: rgb(182, 165, 125);
+}
+
+.img-about-us-container::before {
+  position: absolute;
+  content: "About Us";
+  top: 125px;
+  left: -400px;
+  font-size: 148px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(207, 207, 207, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+}
+.img-about-us-container::after {
+  position: absolute;
+  content: "A";
+  top: -250px;
+  left: 800px;
+  z-index: -2;
+  font-size: 248px;
+  font-family: "Montserrat", sans-serif;
+  color: rgba(207, 207, 207, 0.2);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+/* -------------"footer"------------- */
+.footer-container {
+  display: flex;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 70px;
+}
+
+.bg-footer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: brightness(0.15);
+}
+
+.content-footer-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+
+.c-footer p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(72, 72, 72);
+  text-align: left;
+}
+
+.logo-footer {
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+.logo-footer p {
+  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 8px;
+}
+.logo-footer p::before {
+  position: absolute;
+  content: "";
+  top: 13px;
+  left: 43px;
+  width: 57px;
+  height: 4px;
+  background-color: rgb(182, 165, 125);
+}
+
+.auter-footer p {
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(72, 72, 72);
+  text-align: left;
+}
+.auter-footer p span {
+  font-weight: bold;
+}/*# sourceMappingURL=style.css.map */
